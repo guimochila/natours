@@ -4,15 +4,18 @@
   "description": "Landing page from CSS course",
   "main": "index.js",
   "scripts": {
-    "compile-sass": "node-sass -w sass/main.sass css/style.css",
-    "watch-css": "browser-sync start --server --files 'css/*.css' index.html",
-    "start": "concurrently 'npm:compile-sass' 'npm:watch-css'"
+    "compile-sass": "node-sass -w src/sass/main.sass dist/css/style.css",
+    "browsersync": "browser-sync start --config bs-config.js",
+    "start": "concurrently 'npm:compile-sass' 'npm:browsersync'",
+    "deploy": "gh-pages -d dist"
   },
   "author": "Guilherme Scaldelai",
   "license": "ISC",
+  "homepage": "https://guimochila.github.io/natours",
   "devDependencies": {
     "browser-sync": "^2.24.7",
     "concurrently": "^4.0.1",
+    "gh-pages": "^1.2.0",
     "node-sass": "^4.9.3"
   }
 }
